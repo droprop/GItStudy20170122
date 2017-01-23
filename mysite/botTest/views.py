@@ -10,7 +10,7 @@ def index(request):
     talkList = Talk.objects.all()
     logger = logging.getLogger('command')
 
-    ran = random.randint(0, len(talkList))
+    ran = random.randint(0, len(talkList)) - 1
     logger.info(ran)
 
 
