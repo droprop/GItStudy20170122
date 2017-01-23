@@ -10,5 +10,5 @@ def index(request):
     logger = logging.getLogger('command')
     logger.info(talkList[0])
 
-    context = {'ret': talkList[0]}
+    context = {'ret': talkList}
     return render(request, 'botTest/index.html', context)
