@@ -11,7 +11,7 @@ def index(request):
     logger = logging.getLogger('command')
 
     ran = random.randint(1, len(talkList)) - 1
-    logger.info(ran)
+    logger.info(request.POST['rrr'])
 
     lis = list()
     lis.append(talkList[ran].content)
