@@ -1,0 +1,13 @@
+[INFO]	asctime:2017-01-02 03:29:01,906	module:views	message:mesgemassage	process:14473	thread:1995964416
+[INFO]	asctime:2017-01-02 03:29:22,933	module:views	message:mesgemassage	process:14473	thread:1995964416
+[INFO]	asctime:2017-01-02 19:05:34,537	module:views	message:mesgemassage	process:17519	thread:1995808768
+[INFO]	asctime:2017-01-02 19:06:58,941	module:views	message:mesgemassage	process:22541	thread:1996283904
+[INFO]	asctime:2017-01-02 19:11:29,476	module:views	message:<QuerySet [<Talk: こんにちは！>, <Talk: こんばんは！>, <Talk: お腹減った>, <Talk: ジャリボーイと互角に勝負してるぜ>, <Talk: 聞かせてあげよう我がなの名>, <Talk: 親しみ中にも小判輝く>, <Talk: そんなことも知らないとは困ったポケモン図鑑だにゃ〜>, <Talk: あいつら人のポケモンを奪う悪いやつなんだ！>, <Talk: 俺たちロケット団がもらうぜ！>]>	process:22665	thread:1995948032
+[INFO]	asctime:2017-01-02 19:13:08,883	module:views	message:<QuerySet [<Talk: こんにちは！>, <Talk: こんばんは！>, <Talk: お腹減った>, <Talk: ジャリボーイと互角に勝負してるぜ>, <Talk: 聞かせてあげよう我がなの名>, <Talk: 親しみ中にも小判輝く>, <Talk: そんなことも知らないとは困ったポケモン図鑑だにゃ〜>, <Talk: あいつら人のポケモンを奪う悪いやつなんだ！>, <Talk: 俺たちロケット団がもらうぜ！>]>	process:22665	thread:1995948032
+[INFO]	asctime:2017-01-02 19:13:17,826	module:views	message:<QuerySet [<Talk: こんにちは！>, <Talk: こんばんは！>, <Talk: お腹減った>, <Talk: ジャリボーイと互角に勝負してるぜ>, <Talk: 聞かせてあげよう我がなの名>, <Talk: 親しみ中にも小判輝く>, <Talk: そんなことも知らないとは困ったポケモン図鑑だにゃ〜>, <Talk: あいつら人のポケモンを奪う悪いやつなんだ！>, <Talk: 俺たちロケット団がもらうぜ！>]>	process:22665	thread:1995948032
+[INFO]	asctime:2017-01-02 19:13:32,230	module:views	message:こんにちは！	process:22746	thread:1996144640
+[INFO]	asctime:2017-01-22 19:28:30,294	module:views	message:こんにちは！	process:19558	thread:1996337152
+[INFO]	asctime:2017-01-22 19:53:40,968	module:views	message:こんにちは！	process:19558	thread:1996337152
+[INFO]	asctime:2017-01-22 19:57:03,888	module:views	message:こんにちは！	process:19558	thread:1996337152
+[INFO]	asctime:2017-01-22 19:57:43,360	module:views	message:こんにちは！	process:19558	thread:1996337152
+[INFO]	asctime:2017-01-22 19:58:24,094	module:views	message:こんにちは！	process:19558	thread:1996337152
