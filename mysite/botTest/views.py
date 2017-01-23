@@ -10,9 +10,11 @@ def index(request):
     talkList = Talk.objects.all()
     logger = logging.getLogger('command')
 
-    ran = random.randint(0, len(talkList)) - 1
+    ran = random.randint(1, len(talkList)) - 1
     logger.info(ran)
 
+    lis = list()
+    lis.append(talkList[ran])
 
-    context = {'ret': talkList[ran]}
+    context = {'ret': lis}
     return render(request, 'botTest/index.html', context)
