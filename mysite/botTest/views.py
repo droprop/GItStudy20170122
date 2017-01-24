@@ -12,7 +12,7 @@ def index(request):
 
     ran = random.randint(1, len(talkList)) - 1
     #tl = request.POST['talk']
-    logger.info(tl)
+    #logger.info(tl)
 
     lis = list()
     lis.append(talkList[ran].content)
