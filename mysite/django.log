@@ -10,4 +10,4 @@
 [INFO]	asctime:2017-01-22 19:53:40,968	module:views	message:こんにちは！	process:19558	thread:1996337152
 [INFO]	asctime:2017-01-22 19:57:03,888	module:views	message:こんにちは！	process:19558	thread:1996337152
 [INFO]	asctime:2017-01-22 19:57:43,360	module:views	message:こんにちは！	process:19558	thread:1996337152
-[INFO]	asctime:2017-01-22 19:58:24,094	module:views	message:こんにちは！	process:19558	thread:1996337152
+[INFO]	asctime:2017-01-22 aaaa19:58:24,094	module:views	message:こんにちは！	process:19558	thread:1996337152
