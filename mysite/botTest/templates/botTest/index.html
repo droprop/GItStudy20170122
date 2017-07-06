@@ -24,14 +24,14 @@
     </p>
      -->
     <br />
-    {% for rrr in ret %}
+    <!-- {% for rrr in ret %} -->
     <div class="chat-box">
       <div class="chat-face">
         <img src="../../static/botTest/img/ryo.jpg" alt="自分のチャット画像です。" width="60" height="60">
       </div>
       <div class="chat-area">
         <div class="chat-hukidashi">
-          <div name="rrr">{{ rrr }}</div>
+          <div name="ret1">{{ ret1 }}</div>
         </div>
       </div>
     </div>
@@ -42,11 +42,11 @@
       </div>
       <div class="chat-area">
         <div class="chat-hukidashi someone">
-          <div name="rrr">{{ rrr }}</div>
+          <div name="ret2">{{ ret1 }}</div>
         </div>
       </div>
     </div>
-    {% endfor %}
+    <!-- {% endfor %} -->
     <form action="/bot/" method="post">{% csrf_token %}
       <!-- <div class="form-group">
         <label for="exampleInputFile">File input</label>
