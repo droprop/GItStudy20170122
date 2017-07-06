@@ -26,4 +26,4 @@ def index(request):
     logger.info(ret2)
 
     context = {'ret1': ret1}
-    return render(request, 'botTest/index.html', {'ret1': 'awfuwahfu})
+    return render(request, 'botTest/index.html', {'ret1': 'awfuwahfu'})
