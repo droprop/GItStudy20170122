@@ -19,6 +19,7 @@ def index(request):
 #    lis.append("aaaaaa")
 
     ret1 = talkList[ran]
+    logger.info(ret1)
 
     context = {'ret1': ret1}
     return render(request, 'botTest/index.html', context)
