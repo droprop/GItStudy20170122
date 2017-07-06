@@ -25,5 +25,5 @@ def index(request):
     ret2 = talkList[ran]
     logger.info(ret2)
 
-    context = {'ret1': ret1}
-    return render(request, 'botTest/index.html', {'ret1': ret1, 'ret2' : ret2})
+    context = {'ret1': ret1, 'ret2' : ret2}
+    return render(request, 'botTest/index.html', context)
