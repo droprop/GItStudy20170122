@@ -19,11 +19,11 @@ def index(request):
 #    lis.append("aaaaaa")
 
     ret1 = talkList[ran]
-    logger.info("ret1    " + ret1)
+    logger.info(ret1)
 
     ran = random.randint(1, len(talkList)) - 1
     ret2 = talkList[ran]
-    logger.info("ret2:    " + ret2)
+    logger.info(ret2)
 
     context = {'ret1': ret1}
     return render(request, 'botTest/index.html', context)
