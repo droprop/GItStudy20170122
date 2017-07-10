@@ -10,13 +10,23 @@
     <script type="text/javascript" src="../../static/botTest/js/bootstrap.min.js"></script>
     <script type="text/javascript">
       function cliAjax() {
+        $.ajax({
+          url : '/bot/',
+          type:'GET',
+          success: function(data) {
+            alert('ok');
+          },
+          error: function(data) {
+            alert('ng');
+          }
+        })
         alert('aaaa');
       }
     </script>
     <title>botTest</title>
   </head>
-  <body>
-    <table　style="margin-left : 30px ;">
+  <body　style="margin-left : 30px ;">
+    <table>
       <h1>RyoBot</h1>
       <!-- <ul>
           <li></li>
