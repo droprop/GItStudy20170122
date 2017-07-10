@@ -16,54 +16,58 @@
     <title>botTest</title>
   </head>
   <body>
-    <h1>RyoBot</h1>
-    <!-- <ul>
-        <li></li>
-    </ul>
-    <p>ssssss.</p>
-    <p class="triangle-right left">
-      komakomakomakoma
-    </p>
-    <p class="triangle-right right">
-      aaaawiwiwiwiwiwiw
-    </p>
-     -->
-    <br />
-    <div class="chat-box">
-      <div class="chat-face">
-        <img src="../../static/botTest/img/ryo.jpg" alt="自分のチャット画像です。" width="60" height="60">
-      </div>
-      <div class="chat-area">
-        <div class="chat-hukidashi">
-          <div name="ret1">{{ret1}}</div>
+    <table　style="margin : 30px ;">
+      <h1>RyoBot</h1>
+      <!-- <ul>
+          <li></li>
+        </ul>
+        <p>ssssss.</p>
+        <p class="triangle-right left">
+        komakomakomakoma
+      </p>
+      <p class="triangle-right right">
+        aaaawiwiwiwiwiwiw
+      </p>
+      -->
+      <br />
+      <div class="chat-box">
+        <div class="chat-face">
+          <img src="../../static/botTest/img/ryo.jpg" alt="自分のチャット画像です。" width="60" height="60">
+        </div>
+        <div class="chat-area">
+          <div class="chat-hukidashi">
+            <div name="ret1">{{ret1}}</div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="chat-box">
-      <div class="chat-face">
-        <img src="../../static/botTest/img/saki.jpg" alt="誰かのチャット画像です。" width="60" height="60">
-      </div>
-      <div class="chat-area">
-        <div class="chat-hukidashi someone">
-          <div name="ret2">{{ret2}}</div>
+      <div class="chat-box">
+        <div class="chat-face">
+          <img src="../../static/botTest/img/saki.jpg" alt="誰かのチャット画像です。" width="60" height="60">
+        </div>
+        <div class="chat-area">
+          <div class="chat-hukidashi someone">
+            <div name="ret2">{{ret2}}</div>
+          </div>
         </div>
       </div>
-    </div>
-    <form action="/bot/" method="post">{% csrf_token %}
-      <!-- <div class="form-group">
-        <label for="exampleInputFile">File input</label>
-        <input type="file" id="exampleInputFile">
-        <p class="help-block">Example block-level help text here.</p>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox"> Check me out
-        </label>
-      </div>
-       -->
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-    <input type="button" value="ajax通信" onclick="cliAjax()"></input>
+      <form action="/bot/" method="post">{% csrf_token %}
+        <!-- <div class="form-group">
+          <label for="exampleInputFile">File input</label>
+          <input type="file" id="exampleInputFile">
+          <p class="help-block">Example block-level help text here.</p>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Check me out
+          </label>
+        </div>
+        -->
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <br />
+      <br />
+      <input type="button" value="ajax通信" onclick="cliAjax()"></input>
+    </table>
   </body>
 </html>
