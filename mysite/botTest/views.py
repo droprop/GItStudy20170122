@@ -19,16 +19,18 @@ def index(request):
     lis.append(talkList[ran].content)
 #    lis.append("aaaaaa")
 
-    ret1 = talkList[ran]
+    ret1 = talkList[ran].content
     logger.info(ret1)
 
     ran = random.randint(1, len(talkList)) - 1
-    ret2 = talkList[ran]
+    ret2 = talkList[ran].content
     logger.info(ret2)
 
 #    logger.info(isinstance(ret2.content, str))
 #    logger.info(isinstance(ret2.content, Talk))
 
-    context = {'ret1': ret1.content, 'ret2' : ret2.content}
+    context = {'ret1': ret1, 'ret2' : ret2}
+    logger.info(context)
+    logger.info(isinstance(context, dict))
     data = json.dumps(context)
     return render(request, 'botTest/index.html', data)
