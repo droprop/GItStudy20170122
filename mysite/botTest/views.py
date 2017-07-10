@@ -4,6 +4,7 @@ from django.http import HttpResponse
 import logging
 from botTest.models import Talk
 import random
+import json
 
 def index(request):
 
