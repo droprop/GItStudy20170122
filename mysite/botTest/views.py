@@ -26,8 +26,8 @@ def index(request):
     ret2 = talkList[ran]
     logger.info(ret2)
 
-    logger.info(isinstance(ret2, str))
-    logger.info(isinstance(ret2, Talk))
+    logger.info(isinstance(ret2.content, str))
+    logger.info(isinstance(ret2.content, Talk))
 
     context = {'ret1': ret1, 'ret2' : ret2}
     data = json.dumps(context)
