@@ -34,4 +34,6 @@ def index(request):
     logger.info(context)
     logger.info(isinstance(context, dict))
     data = json.dumps(context)
+    logger.info('isinstance(context, dict)')
+
     return render(request, 'botTest/index.html', data)
