@@ -10,17 +10,17 @@
     <script type="text/javascript" src="../../static/botTest/js/bootstrap.min.js"></script>
     <script type="text/javascript">
       function cliAjax() {
+        alert('aaaa');
         $.ajax({
           url : '/bot/ajax',
           type:'GET',
           success: function(data) {
             alert(data.ret1);
           },
-          error: function(data) {
+          error: function(XMLHttpRequest, textStatus, errorThrown) {
             alert('ng');
           }
         })
-        alert('aaaa');
       }
     </script>
     <title>botTest</title>
