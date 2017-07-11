@@ -29,7 +29,8 @@ def index(request):
 #    logger.info(isinstance(ret2.content, str))
 #    logger.info(isinstance(ret2.content, Talk))
 
-    context = {'ret1': ret1, 'ret2' : ret2}
+#    context = {'ret1': ret1, 'ret2' : ret2}
+    context = {'ret1': 'diaid', 'ret2' : 'ret2'}
     logger.info(context)
     logger.info(isinstance(context, dict))
     data = json.dumps(context)
