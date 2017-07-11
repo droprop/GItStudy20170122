@@ -63,4 +63,4 @@ def ajaxFunc(request):
     data = json.dumps(context)
     logger.info('isinstance(context, dict)')
 
-    return render(request, 'botTest/index.html', data)
+    return HttpResponse(data, content_type='application/json')
