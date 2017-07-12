@@ -12,13 +12,13 @@
       function cliAjax() {
         $.ajax({
           url : '/bot/ajax',
-          type:'GET',
-          success: function(data) {
-            alert(data.ret1);
-          },
-          error: function(XMLHttpRequest, textStatus, errorThrown) {
-            alert('ng');
-          }
+          type:'GET'
+        })
+        .done(function(data) {
+          alert(data.ret1);
+        })
+        .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+          alert('ng');
         })
       }
     </script>
