@@ -21,9 +21,9 @@
           d1.textContent = data.ret1;
           var d2 = document.createElement('div');
           d2.textContent = data.ret2;
-          e1.appendChild(d1);
-          e1.appendChild(d2);
           setTimeout(function() {
+            e1.appendChild(d1);
+            e1.appendChild(d2);
             window.scroll(0,$(document).height());
           },0);
         })
