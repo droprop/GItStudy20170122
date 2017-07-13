@@ -22,9 +22,9 @@
           var d2 = document.createElement('div');
           d2.textContent = data.ret2;
           setTimeout(function() {
-            window.scroll(0,$(document).height());
             e1.appendChild(d1);
             e1.appendChild(d2);
+            window.scroll(0,$(document).height());
           },0);
         })
         .fail(function(XMLHttpRequest, textStatus, errorThrown) {
