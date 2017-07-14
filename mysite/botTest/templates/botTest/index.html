@@ -20,14 +20,14 @@
           var d1 = document.createElement('div');
           d1.textContent = data.ret1;
           var d2 = document.createElement('div');
-          d2.textContent = document.getElementById("text").value;
+          //d2.textContent = document.getElementById("text").value;
           var responseTag = '<div class="chat-face">';
           responseTag += '<img src="../../static/botTest/img/ryo.jpg" alt="自分のチャット画像です。" width="60" height="60">'
           responseTag += '</div>';
+          d2.innerHTML = responseTag;
 
           e1.appendChild(d1);
           e1.appendChild(d2);
-          e1.innerHTML = responseTag;
           window.scroll(0,$(document).height());
           //setTimeout(function() {
           //},0);
