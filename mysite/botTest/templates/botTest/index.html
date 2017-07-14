@@ -20,12 +20,12 @@
           var d1 = document.createElement('div');
           d1.textContent = data.ret1;
           var d2 = document.createElement('div');
-          d2.textContent = data.ret2;
-          setTimeout(function() {
-            e1.appendChild(d1);
-            e1.appendChild(d2);
-            window.scroll(0,$(document).height());
-          },0);
+          d2.textContent = document.getElementById("text").value;
+          e1.appendChild(d1);
+          e1.appendChild(d2);
+          window.scroll(0,$(document).height());
+          //setTimeout(function() {
+          //},0);
         })
         .fail(function(XMLHttpRequest, textStatus, errorThrown) {
           alert('ng');
@@ -71,6 +71,7 @@
         </div>
       </div>
       <form action="/bot/" method="post">{% csrf_token %}
+        <input type="text" name="text" id="text"></input>
         <!-- <div class="form-group">
           <label for="exampleInputFile">File input</label>
           <input type="file" id="exampleInputFile">
@@ -82,11 +83,10 @@
           </label>
         </div>
         -->
-        <button type="submit" class="btn btn-default">Submit</button>
+        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+        <br />
+        <input type="button" value="ajax通信" onclick="cliAjax()"></input>
       </form>
-      <br />
-      <br />
-      <input type="button" value="ajax通信" onclick="cliAjax()"></input>
     </table>
   </body>
 </html>
