@@ -48,7 +48,12 @@
         }
         responseTag += '</div>';
         responseTag += '<div class="chat-area">';
-        responseTag += '<div class="chat-hukidashi">';
+        if (who == "ryo") {
+          responseTag += '<div class="chat-hukidashi">';
+        } else if (who == "saki") {
+          responseTag += '<div class="chat-hukidashi someone">';
+        }
+
         responseTag += '<div>' + text + '<div>';
         responseTag += '</div>';
         responseTag += '</div>';
