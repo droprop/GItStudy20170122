@@ -19,12 +19,12 @@
           // 子要素の追加
           var d1 = document.createElement('div');
           var resText = data.ret1;
-          var resRyoTag = createResponseTag(ryo, resText);
+          var resRyoTag = createResponseTag("ryo", resText);
           d1.innerHTML = resRyoTag;
 
           var d2 = document.createElement('div');
           var inputText = document.getElementById("text").value;
-          var resSakiTag = createResponseTag(saki, inputText);
+          var resSakiTag = createResponseTag("saki", inputText);
           d2.innerHTML = resSakiTag;
 
           e1.appendChild(d1);
