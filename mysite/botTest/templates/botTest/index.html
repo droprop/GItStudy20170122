@@ -10,7 +10,6 @@
     <script type="text/javascript" src="../../static/botTest/js/bootstrap.min.js"></script>
     <script type="text/javascript">
       function cliAjax() {
-
         var retArea = document.getElementById('retArea');
 
         var myDiv = document.createElement('div');
@@ -33,7 +32,7 @@
           setTimeout(function() {
             retArea.appendChild(retDiv);
             window.scroll(0,$(document).height());
-          },5000);
+          },3000);
 
         })
         .fail(function(XMLHttpRequest, textStatus, errorThrown) {
@@ -106,7 +105,8 @@
       </div>
       <form action="/bot/" method="post">{% csrf_token %}
         <input type="text" name="text" id="text"></input>
-        <input type="button" value="送信" onclick="cliAjax()"></input>
+        <button type="button" class="btn btn-success" 
+        value="送信" onclick="cliAjax()" style="margin-left : 30px ;"></button>
         <!-- <div class="form-group">
           <label for="exampleInputFile">File input</label>
           <input type="file" id="exampleInputFile">
