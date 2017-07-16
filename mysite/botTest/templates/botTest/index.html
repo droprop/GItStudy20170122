@@ -15,42 +15,43 @@
           type:'GET'
         })
         .done(function(data) {
-          var e1 = document.getElementById('retArea');
-          // 子要素の追加
-          var d1 = document.createElement('div');
-          var resText = data.ret1;
-          var resRyoTag = createResponseTag("ryo", resText);
-          d1.innerHTML = resRyoTag;
+          var retArea = document.getElementById('retArea');
 
-          var d2 = document.createElement('div');
-          var inputText = document.getElementById("text").value;
-          var resSakiTag = createResponseTag("saki", inputText);
-          d2.innerHTML = resSakiTag;
-
-          e1.appendChild(d1);
-          e1.appendChild(d2);
+          var myDiv = document.createElement('div');
+          var myText = document.getElementById('text').value;
+          var myTag = createChatTag('input', myText);
+          myDiv.innerHTML = myTag;
+          retArea.appendChild(myDiv);
           window.scroll(0,$(document).height());
-          //setTimeout(function() {
-          //},0);
+
+          var retDiv = document.createElement('div');
+          var retText = data.ret1;
+          var retTag = createChatTag('ret', retText);
+          retDiv.innerHTML = retTag;
+          setTimeout(function() {
+            retArea.appendChild(retDiv);
+            window.scroll(0,$(document).height());
+          },5000);
+
         })
         .fail(function(XMLHttpRequest, textStatus, errorThrown) {
           alert('ng');
         })
       }
 
-      function createResponseTag(who, text) {
+      function createChatTag(categoly, text) {
         var responseTag = '<div class="chat-box">';
         responseTag += '<div class="chat-face">';
-        if (who == "ryo") {
+        if (categoly == "ret") {
           responseTag += '<img src="../../static/botTest/img/ryo.jpg" width="60" height="60">'
-        } else if (who == "saki") {
+        } else if (categoly == "input") {
           responseTag += '<img src="../../static/botTest/img/saki.jpg" width="60" height="60">'
         }
         responseTag += '</div>';
         responseTag += '<div class="chat-area">';
-        if (who == "ryo") {
+        if (categoly == "ret") {
           responseTag += '<div class="chat-hukidashi">';
-        } else if (who == "saki") {
+        } else if (categoly == "input") {
           responseTag += '<div class="chat-hukidashi someone">';
         }
 
@@ -66,17 +67,6 @@
   <body　style="margin-left : 30px ;">
     <table>
       <h1>RyoBot</h1>
-      <!-- <ul>
-          <li></li>
-        </ul>
-        <p>ssssss.</p>
-        <p class="triangle-right left">
-        komakomakomakoma
-      </p>
-      <p class="triangle-right right">
-        aaaawiwiwiwiwiwiw
-      </p>
-      -->
       <br />
       <div class="chat-box">
         <div class="chat-face">
@@ -88,6 +78,16 @@
           </div>
         </div>
       </div>
+      <!-- <ul>
+          <li></li>
+        </ul>
+        <p>ssssss.</p>
+        <p class="triangle-right left">
+        komakomakomakoma
+      </p>
+      <p class="triangle-right right">
+        aaaawiwiwiwiwiwiw
+      </p>
 
       <div class="chat-box" id="ret2div">
         <div class="chat-face">
@@ -99,10 +99,12 @@
           </div>
         </div>
       </div>
+    -->
       <div id="retArea">
       </div>
       <form action="/bot/" method="post">{% csrf_token %}
         <input type="text" name="text" id="text"></input>
+        <input type="button" value="送信" onclick="cliAjax()"></input>
         <!-- <div class="form-group">
           <label for="exampleInputFile">File input</label>
           <input type="file" id="exampleInputFile">
@@ -115,9 +117,6 @@
         </div>
         -->
         <!-- <button type="submit" class="btn btn-default">Submit</button> -->
-        <br />
-        <br />
-        <input type="button" value="ajax通信" onclick="cliAjax()"></input>
       </form>
     </table>
   </body>
