@@ -31,6 +31,7 @@
         myDiv.innerHTML = myTag;
         retArea.appendChild(myDiv);
         window.scroll(0,$(document).height());
+        document.getElementById('text').value = "";
 
         $.ajax({
           url : '/bot/ajax',
@@ -45,7 +46,7 @@
           setTimeout(function() {
             retArea.appendChild(retDiv);
             window.scroll(0,$(document).height());
-          },1000);
+          },2000);
 
         })
         .fail(function(XMLHttpRequest, textStatus, errorThrown) {
