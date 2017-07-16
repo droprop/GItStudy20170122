@@ -9,6 +9,19 @@
     <script type="text/javascript" src="../../static/botTest/js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="../../static/botTest/js/bootstrap.min.js"></script>
     <script type="text/javascript">
+      $(function() {
+        if ($('#text').val().length == 0) {
+          $('#ajaxButton').prop('disabled', true);
+        }
+        $('#text').on('keydown keyup keypress change', function() {
+          if ( $(this).val().length > 0 ) {
+            $('#ajaxButton').prop('disabled', false);
+          } else {
+            $('#ajaxButton').prop('disabled', true);
+          }
+        });
+      });
+
       function cliAjax() {
         var retArea = document.getElementById('retArea');
 
@@ -32,7 +45,7 @@
           setTimeout(function() {
             retArea.appendChild(retDiv);
             window.scroll(0,$(document).height());
-          },3000);
+          },1000);
 
         })
         .fail(function(XMLHttpRequest, textStatus, errorThrown) {
@@ -103,9 +116,11 @@
     -->
       <div id="retArea">
       </div>
+      <!-- そもそもここにformタグいる？ -->
       <form action="/bot/" method="post">{% csrf_token %}
         <input type="text" name="text" id="text"></input>
-        <button type="button" class="btn btn-info" 
+        <input type="text" name="dummy" style="display:none;">
+        <button type="button" class="btn btn-info" id="ajaxButton"
         onclick="cliAjax()" style="margin-left:10px;">送信</button>
         <!-- <div class="form-group">
           <label for="exampleInputFile">File input</label>
