@@ -35,22 +35,22 @@ def index(request):
 
 def ajaxFunc(request):
 
-    talkList = Talk.objects.filter(name='ryo').order_by('?')#[:1]
+    retTalk = Talk.objects.filter(name='ryo').order_by('?')[0]
     logger = logging.getLogger('command')
 
-    ran = random.randint(1, len(talkList)) - 1
+#    ran = random.randint(1, len(talkList)) - 1
 
-    lis = list()
-    lis.append(talkList[ran].content)
+#    lis = list()
+#    lis.append(talkList[ran].content)
 
-    ret1 = talkList[ran].content
-    logger.info('ajaxFunc--start--')
+#    ret1 = talkList[ran].content
+#    logger.info('ajaxFunc--start--')
 
 #    ran = random.randint(1, len(talkList)) - 1
 #    ret2 = talkList[ran].content
-    logger.info(ret1)
+#    logger.info(ret1)
 
-    context = {'ret1': ret1}
+    context = {'ret1': retTalk.content}
     logger.info(context)
     logger.info(isinstance(context, dict))
     data = json.dumps(context)
