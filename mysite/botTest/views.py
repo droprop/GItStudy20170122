@@ -8,29 +8,29 @@ import json
 
 def index(request):
 
-    talkList = Talk.objects.all()
     logger = logging.getLogger('command')
 
-    ran = random.randint(1, len(talkList)) - 1
+#    talkList = Talk.objects.all()
+#    ran = random.randint(1, len(talkList)) - 1
     #tl = request.POST['talk']
     #logger.info(tl)
 
-    lis = list()
-    lis.append(talkList[ran].content)
+#    lis = list()
+#    lis.append(talkList[ran].content)
 #    lis.append("aaaaaa")
 
-    ret1 = talkList[ran].content
-    logger.info(ret1)
+#    ret1 = talkList[ran].content
+#    logger.info(ret1)
 
-    ran = random.randint(1, len(talkList)) - 1
-    ret2 = talkList[ran].content
-    logger.info(ret2)
+#    ran = random.randint(1, len(talkList)) - 1
+#    ret2 = talkList[ran].content
+#    logger.info(ret2)
 
 #    logger.info(isinstance(ret2.content, str))
 #    logger.info(isinstance(ret2.content, Talk))
 
-    context = {'ret1': ret1, 'ret2' : ret2}
-
+    retTalk = Talk.objects.filter(name='ryo').order_by('?')[0]
+    context = {'ret1': retTalk.content}
     return render(request, 'botTest/index.html', context)
 
 def ajaxFunc(request):
