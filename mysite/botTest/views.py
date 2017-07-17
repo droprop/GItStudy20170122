@@ -35,7 +35,7 @@ def index(request):
 
 def ajaxFunc(request):
 
-    talkList = Talk.objects.filter(name='ryo')#.order_by('?')[:1]
+    talkList = Talk.objects.filter(name='ryo').order_by('?')#[:1]
     logger = logging.getLogger('command')
 
     ran = random.randint(1, len(talkList)) - 1
