@@ -46,11 +46,11 @@ def ajaxFunc(request):
     ret1 = talkList[ran].content
     logger.info('ajaxFunc--start--')
 
-    ran = random.randint(1, len(talkList)) - 1
-    ret2 = talkList[ran].content
+#    ran = random.randint(1, len(talkList)) - 1
+#    ret2 = talkList[ran].content
     logger.info(ret2)
 
-    context = {'ret1': ret1.content}
+    context = {'ret1': ret1}
     logger.info(context)
     logger.info(isinstance(context, dict))
     data = json.dumps(context)
