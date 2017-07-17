@@ -48,7 +48,7 @@ def ajaxFunc(request):
 
 #    ran = random.randint(1, len(talkList)) - 1
 #    ret2 = talkList[ran].content
-    logger.info(ret2)
+    logger.info(ret1)
 
     context = {'ret1': ret1}
     logger.info(context)
