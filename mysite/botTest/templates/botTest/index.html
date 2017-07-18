@@ -10,7 +10,7 @@
     <script type="text/javascript" src="../../static/botTest/js/bootstrap.min.js"></script>
     <style type="text/css">
     .form1 {
-      position: fixed;
+      position: absolute;
       bottom: 10px; left: 10px;
     }
     </style>
@@ -102,7 +102,7 @@
       </div>
       <!-- 履歴保存する可能性があるためformタグ -->
       <form action="/bot/" method="post" class="form1">{% csrf_token %}
-        <input type="text" name="text" id="text" size="20"></input>
+        <input type="text" name="text" id="text" size="40"></input>
         <input type="text" name="dummy" style="display:none;">
         <button type="button" class="btn btn-info" id="ajaxButton"
         onclick="cliAjax()" style="margin-left:10px;">送信</button>
