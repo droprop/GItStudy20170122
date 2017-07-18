@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrapform',  # django-bootstrap-form
 ]
-
+BASICAUTH_USERNAME = 'user'
+BASICAUTH_PASSWORD = 'pass'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'mysile.middleware.BasicAuthMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
