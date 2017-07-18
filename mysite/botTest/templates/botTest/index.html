@@ -9,9 +9,20 @@
     <script type="text/javascript" src="../../static/botTest/js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="../../static/botTest/js/bootstrap.min.js"></script>
     <style type="text/css">
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    .content {
+      min-height: 100%;
+    }
+    .content-inside {
+      padding: 20px;
+      padding-bottom: 50px;
+    }
     .form1 {
-      position: absolute;
-      bottom: 10px; left: 10px;
+      height: 50px;
+      margin-top: -50px;
     }
     </style>
     <script type="text/javascript">
@@ -86,20 +97,22 @@
     <title>RyoBot</title>
   </head>
   <body>
-    <div style="border:#ff0000 solid 1px;">
-      <div class="chat-box">
-        <div class="chat-face">
-          <img src="../../static/botTest/img/ryo.jpg" alt="自分のチャット画像です。" width="60" height="60">
-        </div>
-        <div class="chat-area">
-          <div class="chat-hukidashi">
-            <div name="retContent">{{retContent}}</div>
+    <div  class="content">
+      <div style="border:#ff0000 solid 1px;" class="content-inside">
+        <div class="chat-box">
+          <div class="chat-face">
+            <img src="../../static/botTest/img/ryo.jpg" alt="自分のチャット画像です。" width="60" height="60">
+          </div>
+          <div class="chat-area">
+            <div class="chat-hukidashi">
+              <div name="retContent">{{retContent}}</div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div id="retArea">
+        <div id="retArea"></div>
       </div>
+    </div>
       <!-- 履歴保存する可能性があるためformタグ -->
       <form action="/bot/" method="post" class="form1">{% csrf_token %}
         <input type="text" name="text" id="text" size="40"></input>
@@ -107,6 +120,5 @@
         <button type="button" class="btn btn-info" id="ajaxButton"
         onclick="cliAjax()" style="margin-left:10px;">送信</button>
       </form>
-    </div>
   </body>
 </html>
