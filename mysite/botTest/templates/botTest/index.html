@@ -40,7 +40,7 @@
         .done(function(data) {
 
           var retDiv = document.createElement('div');
-          var retText = data.ret1;
+          var retText = data.retContent;
           var retTag = createChatTag('ret', retText);
           retDiv.innerHTML = retTag;
           setTimeout(function() {
@@ -77,44 +77,21 @@
         return responseTag;
       }
     </script>
-    <title>botTest</title>
+    <title>RyoBot</title>
   </head>
-  <body　style="margin-left : 30px ;">
-    <table>
-      <h1>RyoBot</h1>
-      <br />
+  <body>
+    <table border="1">
       <div class="chat-box">
         <div class="chat-face">
           <img src="../../static/botTest/img/ryo.jpg" alt="自分のチャット画像です。" width="60" height="60">
         </div>
         <div class="chat-area">
           <div class="chat-hukidashi">
-            <div name="ret1">{{ret1}}</div>
+            <div name="retContent">{{retContent}}</div>
           </div>
         </div>
       </div>
-      <!-- <ul>
-          <li></li>
-        </ul>
-        <p>ssssss.</p>
-        <p class="triangle-right left">
-        komakomakomakoma
-      </p>
-      <p class="triangle-right right">
-        aaaawiwiwiwiwiwiw
-      </p>
 
-      <div class="chat-box" id="ret2div">
-        <div class="chat-face">
-          <img src="../../static/botTest/img/saki.jpg" alt="誰かのチャット画像です。" width="60" height="60">
-        </div>
-        <div class="chat-area">
-          <div class="chat-hukidashi someone">
-            <div name="ret2">{{ret2}}</div>
-          </div>
-        </div>
-      </div>
-    -->
       <div id="retArea">
       </div>
       <!-- そもそもここにformタグいる？ -->
@@ -123,18 +100,6 @@
         <input type="text" name="dummy" style="display:none;">
         <button type="button" class="btn btn-info" id="ajaxButton"
         onclick="cliAjax()" style="margin-left:10px;">送信</button>
-        <!-- <div class="form-group">
-          <label for="exampleInputFile">File input</label>
-          <input type="file" id="exampleInputFile">
-          <p class="help-block">Example block-level help text here.</p>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Check me out
-          </label>
-        </div>
-        -->
-        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
       </form>
     </table>
   </body>
