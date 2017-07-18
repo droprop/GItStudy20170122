@@ -25,7 +25,7 @@ SECRET_KEY = ')y-^_vwihy-_d(e#^b93^&iv)=f!um^7a030((0x_h=k%n=+7j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.2.199', 'hiygia.mydns.jp']
+ALLOWED_HOSTS = ['192.168.11.199', 'hiygia.mydns.jp']
 #ALLOWED_HOSTS = ['180.46.143.29']
 # Application definition
 
