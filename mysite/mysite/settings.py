@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrapform',  # django-bootstrap-form
 ]
+BASICAUTH_USERNAME = 'wwwww'
+BASICAUTH_PASSWORD = 'pass'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.BasicAuthMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -152,7 +155,7 @@ LOGGING = {
         'console': { # どこに出すかの設定をもう一つ、こちらの設定には`console`という名前
             'level': 'DEBUG',
             # こちらは標準出力に出してくれるクラスを指定
-            'class': 'logging.StreamHandler', 
+            'class': 'logging.StreamHandler',
             'formatter': 'all'
         },
     },
@@ -163,4 +166,3 @@ LOGGING = {
         },
     },
 }
-
