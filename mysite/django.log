@@ -1224,3 +1224,21 @@ aaaa[INFO]	asctime:2017-01-02 03:29:01,906	module:views	message:mesgemassage	pro
 [INFO]	asctime:2017-07-18 22:59:46,749	module:views	message:True	process:11391	thread:1995878400
 [INFO]	asctime:2017-07-18 23:00:02,793	module:views	message:{'retContent': '病院前に行きますっ'}	process:11391	thread:1995878400
 [INFO]	asctime:2017-07-18 23:00:02,793	module:views	message:True	process:11391	thread:1995878400
+[INFO]	asctime:2017-07-19 23:34:30,808	module:views	message:{'retContent': 'おやすみっ'}	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-19 23:34:30,808	module:views	message:True	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-19 23:34:39,506	module:views	message:{'retContent': '明日の朝は寒そうだし仕事も落ち着いてるから'}	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-19 23:34:39,506	module:views	message:True	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-19 23:34:46,316	module:views	message:{'retContent': 'おつかれさま！'}	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-19 23:34:46,317	module:views	message:True	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:39:27,623	module:views	message:{'retContent': 'きりのいい日数だ(curious1)'}	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:39:27,624	module:views	message:True	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:39:32,834	module:views	message:{'retContent': 'さきちゃん話せそう？'}	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:39:32,835	module:views	message:True	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:39:37,934	module:views	message:{'retContent': 'うん、食べ終わったらはなそっ'}	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:39:37,935	module:views	message:True	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:39:42,443	module:views	message:{'retContent': 'ぎりぎりそうだから新小岩で待ち合わせましょー'}	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:39:42,444	module:views	message:True	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:39:56,940	module:views	message:{'retContent': '目は開くようになりました(beam)'}	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:39:56,941	module:views	message:True	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:40:02,334	module:views	message:{'retContent': 'おつかれさま(kiss1)'}	process:19058	thread:1995452416
+[INFO]	asctime:2017-07-20 08:40:02,334	module:views	message:True	process:19058	thread:1995452416
