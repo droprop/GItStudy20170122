@@ -9,15 +9,14 @@ def index(request):
 
     logger = logging.getLogger('command')
     logger.info('-----request-----')
-    logger.info(request)
     logger.info(request.META['HTTP_USER_AGENT'])
 
-#    agent = request.META['HTTP_USER_AGETN']
+    agent = request.META['HTTP_USER_AGENT']
 
-#    logger.info(parse(agent))
+    logger.info(parse(agent))
 
-#    isSP = parse(agent).isMobile
-#    logger.info(isSP)
+    isSP = parse(agent).isMobile
+    logger.info(isSP)
 
 
     retTalk = Talk.objects.filter(name='ryo').order_by('?')[0]
