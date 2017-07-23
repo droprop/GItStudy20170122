@@ -20,7 +20,7 @@ def index(request):
 
 
     retTalk = Talk.objects.filter(name='ryo').order_by('?')[0]
-    context = {'retContent': retTalk.content}
+    context = {'retContent': retTalk.content, 'isSP' : isSP}
     return render(request, 'botTest/index.html', context)
 
 
