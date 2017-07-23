@@ -15,7 +15,7 @@ def index(request):
 
     logger.info(parse(agent))
 
-    isSP = parse(agent).isMobile
+    isSP = parse(agent).is_mobile
     logger.info(isSP)
 
 
