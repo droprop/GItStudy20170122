@@ -117,14 +117,22 @@
     </div>
       <!-- 履歴保存する可能性があるためformタグ -->
       <form action="/bot/" method="post" class="form1">{% csrf_token %}
-        {% if isSP %}
-          <input type="text" name="text" id="text" style="width:100%; box-sizing:border-box"></input>
-        {% else %}
-          <input type="text" name="text" id="text" size="40"></input>
-        {% endif %}
-        <input type="text" name="dummy" style="display:none;">
-        <button type="button" class="btn btn-info" id="ajaxButton"
-        onclick="cliAjax()" style="margin-left:10px;">送信</button>
+        <table>
+          <tr>
+            <td>
+              {% if isSP %}
+              <input type="text" name="text" id="text" style="width:100%; box-sizing:border-box"></input>
+              {% else %}
+              <input type="text" name="text" id="text" size="40"></input>
+              {% endif %}
+            </td>
+            <td>
+              <input type="text" name="dummy" style="display:none;">
+              <button type="button" class="btn btn-info" id="ajaxButton"
+                onclick="cliAjax()" style="margin-left:10px;">送信</button>
+            </td>
+          </tr>
+        </table>
       </form>
   </body>
 </html>
