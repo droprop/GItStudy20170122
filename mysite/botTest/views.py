@@ -10,7 +10,7 @@ def index(request):
     logger = logging.getLogger('command')
     logger.info('-----request-----')
     logger.info(request)
-#    logger.info(request.META['HTTP_USER_AGETN'])
+    logger.info(request.META['HTTP_USER_AGETN'])
 
 #    agent = request.META['HTTP_USER_AGETN']
 
