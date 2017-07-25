@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../static/botTest/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/botTest/css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="../../static/botTest/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../../static/botTest/js/bootstrap.min.js"></script>
+    <style type="text/css">
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    .content {
+      min-height: 100%;
+    }
+    .content-inside {
+      padding: 20px;
+      padding-bottom: 50px;
+    }
+    .form1 {
+      height: 50px;
+      margin-top: -50px;
+      padding-left: 20px;
+      padding-bottom: 50px;
+    }
+    </style>
+    <script type="text/javascript">
+      $(function() {
+        if ($('#text').val().length == 0) {
+          $('#ajaxButton').prop('disabled', true);
+        }
+        $('#text').on('keydown keyup keypress change', function() {
+          if ( $(this).val().length > 0 ) {
+            $('#ajaxButton').prop('disabled', false);
+          } else {
+            $('#ajaxButton').prop('disabled', true);
+          }
+        });
+      });
+
+      function cliAjax() {
+        var retArea = document.getElementById('retArea');
+
+        var myDiv = document.createElement('div');
+        var myText = document.getElementById('text').value;
+        var myTag = createChatTag('input', myText);
+        myDiv.innerHTML = myTag;
+        retArea.appendChild(myDiv);
+        window.scroll(0,$(document).height());
+        document.getElementById('text').value = "";
+
+        $.ajax({
+          url : '/bot/saki/ajax',
+          type:'GET'
+        })
+        .done(function(data) {
+
+          var retDiv = document.createElement('div');
+          var retText = data.retContent;
+          var retTag = createChatTag('ret', retText);
+          retDiv.innerHTML = retTag;
+          setTimeout(function() {
+            retArea.appendChild(retDiv);
+            window.scroll(0,$(document).height());
+          },2500);
+
+        })
+        .fail(function(XMLHttpRequest, textStatus, errorThrown) {
+          alert('ng');
+        })
+      }
+
+      function createChatTag(categoly, text) {
+        var responseTag = '<div class="chat-box">';
+        responseTag += '<div class="chat-face">';
+        if (categoly == "ret") {
+          responseTag += '<img src="../../static/botTest/img/saki.jpg" width="60" height="60">'
+        } else if (categoly == "input") {
+          responseTag += '<img src="../../static/botTest/img/ryo.jpg" width="60" height="60">'
+        }
+        responseTag += '</div>';
+        responseTag += '<div class="chat-area">';
+        if (categoly == "ret") {
+          responseTag += '<div class="chat-hukidashi">';
+        } else if (categoly == "input") {
+          responseTag += '<div class="chat-hukidashi someone">';
+        }
+
+        responseTag += '<div>' + text + '<div>';
+        responseTag += '</div>';
+        responseTag += '</div>';
+        responseTag += '</div>';
+        return responseTag;
+      }
+    </script>
+    <title>RyoBot</title>
+  </head>
+  <body>
+    <div  class="content" style="background-color:#F5F5F5">
+      <div class="content-inside">
+        <div class="chat-box">
+          <div class="chat-face">
+            <img src="../../static/botTest/img/saki.jpg" alt="自分のチャット画像です。" width="60" height="60">
+          </div>
+          <div class="chat-area">
+            <div class="chat-hukidashi">
+              <div name="retContent">{{retContent}}</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="retArea"></div>
+      </div>
+    </div>
+      <!-- 履歴保存する可能性があるためformタグ -->
+      <form action="/bot/" method="post" class="form1">{% csrf_token %}
+        {% if isSP %}
+        <table width="100%">
+        {% else %}
+        <table>
+        {% endif %}
+          <tr>
+            <td>
+              {% if isSP %}
+              <input type="text" name="text" id="text" style="width:100%; box-sizing:border-box"></input>
+              {% else %}
+              <input type="text" name="text" id="text" size="40"></input>
+              {% endif %}
+            </td>
+            <td>
+              <input type="text" name="dummy" style="display:none;">
+              <button type="button" class="btn btn-info" id="ajaxButton"
+                onclick="cliAjax()" style="margin-left:10px;">送信</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+  </body>
+</html>
