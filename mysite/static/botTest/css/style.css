@@ -58,7 +58,7 @@ top: 16px;
     width: 100%;
     height: auto;
     overflow: hidden; /*floatの解除*/
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .chat-face {
     float: left;
