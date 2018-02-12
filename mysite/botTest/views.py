@@ -40,6 +40,7 @@ def ajaxFunc(request):
     logger.info(request.GET['myText'])
     myText = request.GET['myText']
     logger.info(request.GET['myText'])
+    logger.info(os.path)
 
     dictionary = Dictionary()
     parts = morph.analyze(text)
