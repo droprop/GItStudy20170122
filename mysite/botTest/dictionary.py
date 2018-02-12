@@ -43,7 +43,7 @@ class Dictionary:
         """ランダム辞書、パターン辞書、テンプレート辞書をメモリに保存する。"""
         #self.study_keyword(text)
         self.study_pattern(text, parts)
-        #self.study_template(parts)
+        self.study_template(parts)
 
     def study_template(self, parts):
         """形態素のリストpartsを受け取り、
@@ -52,14 +52,19 @@ class Dictionary:
         """
         template = ''
         count = 0
+        logger = logging.getLogger('command')
+
+
         for word, part in parts:
             if botTest.morph.is_keyword(part):
                 word = '%noun%'
                 count += 1
             template += word
-
+            logger.info('1346')
+        
         if count > 0 and template not in self._template[count]:
             self._template[count].append(template)
+        logger.info(template)
 
     def study_keyword(self, text):
         """ユーザーの発言textをランダム辞書に保存する。
@@ -69,21 +74,16 @@ class Dictionary:
 
     def study_pattern(self, text, parts):
         """ユーザーの発言textを、形態素partsに基づいてパターン辞書に保存する。"""
-        logger = logging.getLogger('command')
         for word, part in parts:
             if botTest.morph.is_keyword(part):  # 品詞が名詞であれば学習
                 # 単語の重複チェック
                 # 同じ単語で登録されていれば、パターンを追加する
                 # 無ければ新しいパターンを作成する
-                logger.info('1342')
                 duplicated = next((p for p in self._pattern if p['pattern'] == word), None)
                 if duplicated:
-                    logger.info('1343')
                     if not text in duplicated['phrases']:
                         duplicated['phrases'].append(text)
-                        logger.info('1345')
                 else:
-                    logger.info('1344')
                     self._pattern.append({'pattern': word, 'phrases': [text]})
 
     def save(self):
@@ -91,9 +91,6 @@ class Dictionary:
         with open(Dictionary.DICT['keyword'], mode='w', encoding='utf-8') as f:
             f.write('\n'.join(self.keyword))
 
-        logger = logging.getLogger('command')
-        logger.info('1346')
-        logger.info(self._pattern)
         with open(Dictionary.DICT['pattern'], mode='w', encoding='utf-8') as f:
             f.write('\n'.join([Dictionary.pattern_to_line(p) for p in self._pattern]))
 
