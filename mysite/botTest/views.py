@@ -6,8 +6,8 @@ import logging
 import json
 import re
 from janome.tokenizer import Tokenizer
-from dictionary import Dictionary
-import morph
+from botTest.dictionary import Dictionary
+import botTest.morph
 
 
 def index(request):
