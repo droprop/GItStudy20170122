@@ -6,19 +6,19 @@ import morph
 class Dictionary:
     """思考エンジンの辞書クラス。
     クラス変数:
-    DICT_RANDOM -- ランダム辞書のファイル名
+    DICT_KEYWORD -- ランダム辞書のファイル名
     DICT_PATTERN -- パターン辞書のファイル名
     スタティックメソッド:
     touch_dics() -- 辞書ファイルにtouch処理を行う
     make_pattern(str) -- パターン辞書読み込み用のヘルパー
     pattern_to_line(pattern) -- パターンハッシュをパターン辞書形式に変換する
     プロパティ:
-    random -- ランダム辞書
+    keyword -- ランダム辞書
     pattern -- パターン辞書
     template -- テンプレート辞書
     """
 
-    DICT = {'random': 'dics/random.txt',
+    DICT = {'keyword': 'dics/keyword.txt',
             'pattern': 'dics/pattern.txt',
             'template': 'dics/template.txt',
             }
@@ -26,8 +26,8 @@ class Dictionary:
     def __init__(self):
         """ファイルから辞書の読み込みを行う。"""
         Dictionary.touch_dics()
-        with open(Dictionary.DICT['random'], encoding='utf-8') as f:
-            self._random = [l for l in f.read().splitlines() if l]
+        with open(Dictionary.DICT['keyword'], encoding='utf-8') as f:
+            self._keyword = [l for l in f.read().splitlines() if l]
 
         with open(Dictionary.DICT['pattern'], encoding='utf-8') as f:
             self._pattern = [Dictionary.make_pattern(l) for l in f.read().splitlines() if l]
@@ -42,7 +42,7 @@ class Dictionary:
 
     def study(self, text, parts):
         """ランダム辞書、パターン辞書、テンプレート辞書をメモリに保存する。"""
-        self.study_random(text)
+        self.study_keyword(text)
         self.study_pattern(text, parts)
         self.study_template(parts)
 
@@ -62,11 +62,11 @@ class Dictionary:
         if count > 0 and template not in self._template[count]:
             self._template[count].append(template)
 
-    def study_random(self, text):
+    def study_keyword(self, text):
         """ユーザーの発言textをランダム辞書に保存する。
         すでに同じ発言があった場合は何もしない。"""
-        if not text in self._random:
-            self._random.append(text)
+        if not text in self._keyword:
+            self._keyword.append(text)
 
     def study_pattern(self, text, parts):
         """ユーザーの発言textを、形態素partsに基づいてパターン辞書に保存する。"""
@@ -84,8 +84,8 @@ class Dictionary:
 
     def save(self):
         """メモリ上の辞書をファイルに保存する。"""
-        with open(Dictionary.DICT['random'], mode='w', encoding='utf-8') as f:
-            f.write('\n'.join(self.random))
+        with open(Dictionary.DICT['keyword'], mode='w', encoding='utf-8') as f:
+            f.write('\n'.join(self.keyword))
 
         with open(Dictionary.DICT['pattern'], mode='w', encoding='utf-8') as f:
             f.write('\n'.join([Dictionary.pattern_to_line(p) for p in self._pattern]))
@@ -116,9 +116,9 @@ class Dictionary:
                 open(dic, 'w').close()
 
     @property
-    def random(self):
+    def keyword(self):
         """ランダム辞書"""
-        return self._random
+        return self._keyword
 
     @property
     def pattern(self):

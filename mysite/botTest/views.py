@@ -40,7 +40,9 @@ def ajaxFunc(request):
     tokens = t.tokenize(myText)
     logger.info(request.GET['myText'])
     for token in tokens:
-        logger.info(token)
+        logger.info(token.surface)
+        logger.info('----------------------')
+        logger.info(token.part_of_speech)
 
 #    logger.info(context)
 #    logger.info(isinstance(context, dict))
@@ -78,3 +80,4 @@ def ajaxFuncS(request):
     data = json.dumps(context)
 
     return HttpResponse(data, content_type='application/json')
+
