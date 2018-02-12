@@ -30,9 +30,10 @@ def ajaxFunc(request):
     logger = logging.getLogger('command')
 
     context = {'retContent': retTalk.content}
-    logger.info(context)
-    logger.info(isinstance(context, dict))
-    data = json.dumps(context)
+    logger.info(request)
+#    logger.info(context)
+#    logger.info(isinstance(context, dict))
+#    data = json.dumps(context)
 
     return HttpResponse(data, content_type='application/json')
 
