@@ -7,7 +7,7 @@ import json
 import re
 from janome.tokenizer import Tokenizer
 from botTest.dictionary import Dictionary
-import botTest.morph
+from botTest.morph import morph
 import os.path
 
 
