@@ -18,9 +18,9 @@ class Dictionary:
     template -- テンプレート辞書
     """
 
-    DICT = {'keyword': 'dics/keyword.txt',
-            'pattern': 'dics/pattern.txt',
-            'template': 'dics/template.txt',
+    DICT = {'keyword': './dics/keyword.txt',
+            'pattern': './dics/pattern.txt',
+            'template': './dics/template.txt',
             }
 
     def __init__(self):
