@@ -1,6 +1,6 @@
 import re
 from random import choice
-import morph
+import botTest.morph
 
 
 class Responder:
@@ -43,7 +43,7 @@ class RandomResponder(Responder):
 
     def response(self, *args):
         """ユーザーからの入力は受け取るが、使用せずにランダムな応答を返す。"""
-        return choice(self._dictionary.random)
+        return choice(self._dictionary.keyword)
 
 
 class PatternResponder(Responder):
@@ -58,13 +58,13 @@ class PatternResponder(Responder):
             if matcher:
                 chosen_response = choice(ptn['phrases'])
                 return chosen_response.replace('%match%', matcher[0])
-        return choice(self._dictionary.random)
+        return choice(self._dictionary.keyword)
 
 
 class TemplateResponder(Responder):
     def response(self, _, parts):
         """形態素解析結果partsに基づいてテンプレートを選択・生成して返す。"""
-        keywords = [word for word, part in parts if morph.is_keyword(part)]
+        keywords = [word for word, part in parts if botTest.morph.is_keyword(part)]
         count = len(keywords)
         if count > 0:
             if count in self._dictionary.template:
@@ -72,4 +72,4 @@ class TemplateResponder(Responder):
                 for keyword in keywords:
                     template = template.replace('%noun%', keyword, 1)
                 return template
-        return choice(self._dictionary.random)
+        return choice(self._dictionary.keyword)

@@ -9,6 +9,7 @@ from janome.tokenizer import Tokenizer
 from botTest.dictionary import Dictionary
 import botTest.morph
 import os.path
+from botTest.responder import WhatResponder, RandomResponder, PatternResponder, TemplateResponder
 
 
 def index(request):
@@ -35,17 +36,17 @@ def ajaxFunc(request):
     logger = logging.getLogger('command')
 
     context = {'retContent': retTalk.content}
-    logger.info('textの中身')
-    logger.info(request)
-    logger.info(request.GET)
     logger.info(request.GET['myText'])
     myText = request.GET['myText']
-    logger.info(request.GET['myText'])
-    logger.info(os.path)
 
     dictionary = Dictionary()
     parts = botTest.morph.analyze(myText)
     dictionary.study(myText, parts)
+
+    responder = PatternResponder('Pattern', dictionary)
+    res = responder.response(myText, parts)
+    logger.info(res)
+
     dictionary.save()
 
 #    for token in tokens:
