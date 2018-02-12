@@ -54,7 +54,7 @@ class Dictionary:
         template = ''
         count = 0
         for word, part in parts:
-            if morph.is_keyword(part):
+            if botTest.morph.is_keyword(part):
                 word = '%noun%'
                 count += 1
             template += word
@@ -71,7 +71,7 @@ class Dictionary:
     def study_pattern(self, text, parts):
         """ユーザーの発言textを、形態素partsに基づいてパターン辞書に保存する。"""
         for word, part in parts:
-            if morph.is_keyword(part):  # 品詞が名詞であれば学習
+            if botTest.morph.is_keyword(part):  # 品詞が名詞であれば学習
                 # 単語の重複チェック
                 # 同じ単語で登録されていれば、パターンを追加する
                 # 無ければ新しいパターンを作成する

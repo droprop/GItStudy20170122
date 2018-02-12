@@ -44,7 +44,7 @@ def ajaxFunc(request):
     logger.info(os.path)
 
     dictionary = Dictionary()
-    parts = morph.analyze(text)
+    parts = botTest.morph.analyze(text)
     dictionary.study(text, parts)
     dictionary.save()
 
