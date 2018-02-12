@@ -40,7 +40,7 @@ def ajaxFunc(request):
     tokens = t.tokenize(myText)
     logger.info(request.GET['myText'])
     for token in tokens:
-    logger.info(token)
+        logger.info(token)
 
 #    logger.info(context)
 #    logger.info(isinstance(context, dict))
