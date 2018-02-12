@@ -56,7 +56,9 @@
         $.ajax({
           url : '/bot/ryo/ajax',
           type:'GET',
-          data : myText
+          data : {
+            myText : myText
+          }
         })
         .done(function(data) {
 

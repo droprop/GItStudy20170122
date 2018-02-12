@@ -17,9 +17,6 @@ def index(request):
 
     isSP = parse(agent).is_mobile
     logger.info(isSP)
-    logger.info(request.GET)
-    logger.info(request.POST)
-
 
     retTalk = Talk.objects.filter(name='ryo').order_by('?')[0]
     context = {'retContent': retTalk.content, 'isSP' : isSP}
@@ -35,7 +32,7 @@ def ajaxFunc(request):
     logger.info('textの中身')
     logger.info(request)
     logger.info(request.GET)
-    logger.info(request.POST)
+    logger.info(request.GET['myText'])
 #    logger.info(context)
 #    logger.info(isinstance(context, dict))
     data = json.dumps(context)
