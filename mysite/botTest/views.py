@@ -33,7 +33,7 @@ def ajaxFunc(request):
     logger.info(request)
 #    logger.info(context)
 #    logger.info(isinstance(context, dict))
-   data = json.dumps(context)
+    data = json.dumps(context)
 
     return HttpResponse(data, content_type='application/json')
 
