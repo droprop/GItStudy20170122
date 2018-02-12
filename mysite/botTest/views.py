@@ -17,6 +17,8 @@ def index(request):
 
     isSP = parse(agent).is_mobile
     logger.info(isSP)
+    logger.info(request.GET)
+    logger.info(request.POST)
 
 
     retTalk = Talk.objects.filter(name='ryo').order_by('?')[0]
