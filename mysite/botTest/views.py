@@ -33,6 +33,7 @@ def ajaxFunc(request):
 
     context = {'retContent': retTalk.content}
     logger.info('textの中身')
+    logger.info(request)
     logger.info(request.GET)
     logger.info(request.POST)
 #    logger.info(context)
