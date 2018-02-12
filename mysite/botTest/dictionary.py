@@ -1,6 +1,6 @@
 import os.path
 from collections import defaultdict
-from botTest.morph import morph
+import botTest.morph
 
 
 class Dictionary:
