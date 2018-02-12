@@ -8,6 +8,7 @@ import re
 from janome.tokenizer import Tokenizer
 from botTest.dictionary import Dictionary
 import botTest.morph
+import os.path
 
 
 def index(request):
