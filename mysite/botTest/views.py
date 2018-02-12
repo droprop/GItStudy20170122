@@ -44,8 +44,8 @@ def ajaxFunc(request):
     logger.info(os.path)
 
     dictionary = Dictionary()
-    parts = botTest.morph.analyze(text)
-    dictionary.study(text, parts)
+    parts = botTest.morph.analyze(myText)
+    dictionary.study(myText, parts)
     dictionary.save()
 
 #    for token in tokens:
@@ -61,7 +61,7 @@ def ajaxFunc(request):
 def analyze(text):
     """文字列textを形態素解析し、[(surface, parts)]の形にして返す。"""
     t = Tokenizer()
-    tokens = t.tokenize(myText)
+    tokens = t.tokenize(text)
     return [(t.surface, t.part_of_speech) for t in tokens]
 
 def is_keyword(part):
