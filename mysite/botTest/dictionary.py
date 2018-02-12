@@ -17,7 +17,6 @@ class Dictionary:
     pattern -- パターン辞書
     template -- テンプレート辞書
     """
-    logger = logging.getLogger('command')
     DICT = {'keyword': './dics/keyword.txt',
             'pattern': './dics/pattern.txt',
             'template': './dics/template.txt',
@@ -43,6 +42,7 @@ class Dictionary:
     def study(self, text, parts):
         """ランダム辞書、パターン辞書、テンプレート辞書をメモリに保存する。"""
         #self.study_keyword(text)
+        logger = logging.getLogger('command')
         logger.info('-------------------------')
         logger.info(text)
         logger.info(parts)
