@@ -31,7 +31,7 @@ def ajaxFunc(request):
 
     context = {'retContent': retTalk.content}
     logger.info('textの中身')
-    logger.info(request.text)
+    logger.info(request.POST['text'])
 #    logger.info(context)
 #    logger.info(isinstance(context, dict))
     data = json.dumps(context)
