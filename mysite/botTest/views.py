@@ -4,6 +4,8 @@ from botTest.models import Talk
 from user_agents import parse
 import logging
 import json
+import re
+from janome.tokenizer import Tokenizer
 
 def index(request):
 
@@ -33,6 +35,13 @@ def ajaxFunc(request):
     logger.info(request)
     logger.info(request.GET)
     logger.info(request.GET['myText'])
+    myText = request.GET['myText']
+    t = Tokenizer()
+    tokens = t.tokenize(myText)
+    logger.info(request.GET['myText'])
+    for token in tokens:
+    logger.info(token)
+
 #    logger.info(context)
 #    logger.info(isinstance(context, dict))
     data = json.dumps(context)
