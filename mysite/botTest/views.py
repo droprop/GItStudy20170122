@@ -39,15 +39,23 @@ def ajaxFunc(request):
     logger.info(request.GET['myText'])
     myText = request.GET['myText']
 
+    with open('./botTest/org_txt/ryo_txt.txt', encoding='utf-8') as f:
+        keywords = [l for l in f.read().splitlines() if l]
+
     dictionary = Dictionary()
-    parts = botTest.morph.analyze(myText)
-    responder = PatternResponder('Pattern', dictionary)
-    responder = TemplateResponder('Template', dictionary)
-    res = responder.response(myText, parts)
+    for keyword in keywords:
+        logger.info(keyword)
+#        parts = botTest.morph.analyze(keyword)
+#        dictionary.study(keyword, parts)
 
-    dictionary.study(myText, parts)
+#    parts = botTest.morph.analyze(myText)
+#    responder = PatternResponder('Pattern', dictionary)
+#    responder = TemplateResponder('Template', dictionary)
+#    res = responder.response(myText, parts)
 
-    logger.info(res)
+#    dictionary.study(myText, parts)
+
+#    logger.info(res)
 
     dictionary.save()
 
@@ -57,7 +65,7 @@ def ajaxFunc(request):
 
 #    logger.info(context)
 #    logger.info(isinstance(context, dict))
-    context = {'retContent': res}
+    context = {'retContent': myText}
     data = json.dumps(context)
 
     return HttpResponse(data, content_type='application/json')
