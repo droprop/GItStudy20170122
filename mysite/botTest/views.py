@@ -35,7 +35,7 @@ def ajaxFunc(request):
     retTalk = Talk.objects.filter(name='ryo').order_by('?')[0]
     logger = logging.getLogger('command')
 
-    context = {'retContent': retTalk.content}
+#    context = {'retContent': retTalk.content}
     logger.info(request.GET['myText'])
     myText = request.GET['myText']
 
@@ -56,6 +56,7 @@ def ajaxFunc(request):
 
 #    logger.info(context)
 #    logger.info(isinstance(context, dict))
+    context = {'retContent': res}
     data = json.dumps(context)
 
     return HttpResponse(data, content_type='application/json')
