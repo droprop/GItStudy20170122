@@ -42,6 +42,7 @@ def ajaxFunc(request):
     dictionary = Dictionary()
     parts = botTest.morph.analyze(myText)
     responder = PatternResponder('Pattern', dictionary)
+    responder = TemplateResponder('Template', dictionary)
     res = responder.response(myText, parts)
 
     dictionary.study(myText, parts)

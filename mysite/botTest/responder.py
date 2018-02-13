@@ -74,9 +74,12 @@ class TemplateResponder(Responder):
         """形態素解析結果partsに基づいてテンプレートを選択・生成して返す。"""
         keywords = [word for word, part in parts if botTest.morph.is_keyword(part)]
         count = len(keywords)
+        logger = logging.getLogger('command')
+        logger.info(keywords)
         if count > 0:
             if count in self._dictionary.template:
                 template = choice(self._dictionary.template[count])
+                logger.info(keywords)
                 for keyword in keywords:
                     template = template.replace('%noun%', keyword, 1)
                 return template
