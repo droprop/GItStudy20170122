@@ -55,8 +55,10 @@
 
         $.ajax({
           url : '/bot/saki/ajax',
-          type:'GET'
-        })
+          type:'GET',
+          data : {
+            myText : myText
+          }        })
         .done(function(data) {
 
           var retDiv = document.createElement('div');

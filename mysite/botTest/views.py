@@ -110,24 +110,6 @@ def indexS(request):
     retTalk = Talk.objects.filter(name='saki').order_by('?')[0]
     context = {'retContent': retTalk.content, 'isSP' : isSP}
 
-    dictionaryS = DictionaryS()
-
-    with open('./botTest/org_txt/saki_txt.txt', encoding='utf-8') as f:
-        keywords = [l for l in f.read().splitlines() if l]
-    for keyword in keywords:
-        parts = botTest.morph.analyze(keyword)
-        dictionaryS.study(keyword, parts)
-
-#    parts = botTest.morph.analyze(myText)
-#    responder = PatternResponder('Pattern', dictionaryS)
-#    responder = TemplateResponder('Template', dictionaryS)
-#    res = responder.response(myText, parts)
-
-#    dictionaryS.study(myText, parts)
-
-#    logger.info(res)
-
-    dictionaryS.save()
 
     return render(request, 'botTest/saki.html', context)
 
@@ -138,9 +120,28 @@ def ajaxFuncS(request):
     logger = logging.getLogger('command')
 
     context = {'retContent': retTalk.content}
-    logger.info(context)
-    logger.info(isinstance(context, dict))
+
+    myText = request.GET['myText']
+
+    dictionary = DictionaryS()
+
+    chance = randrange(0, 100)
+    if chance in range(0, 70):
+        responder = PatternResponder('Pattern', dictionary)
+    else:
+        responder = TemplateResponder('Template', dictionary)
+    
+    parts = botTest.morph.analyze(myText)
+    res = responder.response(myText, parts)
+
+    logger.info(res)
+
+    dictionary.save()
+
+    context = {'retContent': res}
+
     data = json.dumps(context)
+
 
     return HttpResponse(data, content_type='application/json')
 
