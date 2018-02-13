@@ -39,13 +39,22 @@ def ajaxFunc(request):
     logger.info(request.GET['myText'])
     myText = request.GET['myText']
 
-    with open('./botTest/org_txt/ryo_txt.txt', encoding='utf-8') as f:
-        keywords = [l for l in f.read().splitlines() if l]
-
     dictionary = Dictionary()
-    for keyword in keywords:
-        parts = botTest.morph.analyze(keyword)
-        dictionary.study(keyword, parts)
+
+    chance = randrange(0, 100)
+    if chance in range(0, 79):
+        responder = PatternResponder('Pattern', dictionary)
+    else:
+        responder = TemplateResponder('Template', dictionary)
+    
+    parts = botTest.morph.analyze(myText)
+    res = responder.response(myText, parts)
+    # データ作るよう
+#    with open('./botTest/org_txt/ryo_txt.txt', encoding='utf-8') as f:
+#        keywords = [l for l in f.read().splitlines() if l]
+#    for keyword in keywords:
+#        parts = botTest.morph.analyze(keyword)
+#        dictionary.study(keyword, parts)
 
 #    parts = botTest.morph.analyze(myText)
 #    responder = PatternResponder('Pattern', dictionary)
@@ -54,7 +63,7 @@ def ajaxFunc(request):
 
 #    dictionary.study(myText, parts)
 
-#    logger.info(res)
+    logger.info(res)
 
     dictionary.save()
 
@@ -64,7 +73,7 @@ def ajaxFunc(request):
 
 #    logger.info(context)
 #    logger.info(isinstance(context, dict))
-    context = {'retContent': myText}
+    context = {'retContent': res}
     data = json.dumps(context)
 
     return HttpResponse(data, content_type='application/json')

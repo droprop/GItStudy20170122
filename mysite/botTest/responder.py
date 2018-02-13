@@ -55,17 +55,15 @@ class PatternResponder(Responder):
     def response(self, text, _):
         """ユーザーの入力に合致するパターンがあれば、関連するフレーズを返す。"""
         logger = logging.getLogger('command')
-        logger.info(text)
-        logger.info(self._dictionary.pattern)
+        logger.info('call pattern')
         for ptn in self._dictionary.pattern:
             logger.info(ptn)
             matcher = re.search(ptn['pattern'], text)
             if matcher:
                 chosen_response = choice(ptn['phrases'])
-                logger.info(chosen_response)
                 return chosen_response
 
-        logger.info('1246')
+        logger.info('randam')
         return choice(self._dictionary.keyword)
 
 
@@ -75,12 +73,13 @@ class TemplateResponder(Responder):
         keywords = [word for word, part in parts if botTest.morph.is_keyword(part)]
         count = len(keywords)
         logger = logging.getLogger('command')
-        logger.info(keywords)
+        logger.info('call template')
         if count > 0:
             if count in self._dictionary.template:
                 template = choice(self._dictionary.template[count])
-                logger.info(keywords)
+                logger.info(template)
                 for keyword in keywords:
                     template = template.replace('%noun%', keyword, 1)
                 return template
+        logger.info('randam')
         return choice(self._dictionary.keyword)
