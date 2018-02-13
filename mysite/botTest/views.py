@@ -43,7 +43,7 @@ def ajaxFunc(request):
     dictionary = Dictionary()
 
     chance = randrange(0, 100)
-    if chance in range(0, 79):
+    if chance in range(0, 50):
         responder = PatternResponder('Pattern', dictionary)
     else:
         responder = TemplateResponder('Template', dictionary)

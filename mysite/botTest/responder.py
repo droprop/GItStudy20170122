@@ -59,6 +59,7 @@ class PatternResponder(Responder):
         for ptn in self._dictionary.pattern:
             matcher = re.search(ptn['pattern'], text)
             if matcher:
+                logger.info(matcher)
                 chosen_response = choice(ptn['phrases'])
                 return chosen_response
 
