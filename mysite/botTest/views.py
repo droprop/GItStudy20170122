@@ -65,7 +65,7 @@ def ajaxFunc(request):
 
 #    dictionary.study(myText, parts)
 
-    logger.info(res)
+#    logger.info(res)
 
     dictionary.save()
 
@@ -75,7 +75,7 @@ def ajaxFunc(request):
 
 #    logger.info(context)
 #    logger.info(isinstance(context, dict))
-    context = {'retContent': res}
+    context = {'retContent': myText}
     data = json.dumps(context)
 
     return HttpResponse(data, content_type='application/json')
