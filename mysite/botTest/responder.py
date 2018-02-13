@@ -58,12 +58,13 @@ class PatternResponder(Responder):
         logger.info(text)
         logger.info(self._dictionary.pattern)
         for ptn in self._dictionary.pattern:
-            logger.info('1244')
+            logger.info(ptn)
             matcher = re.search(ptn['pattern'], text)
             if matcher:
                 logger.info('1245')
                 logger.info(matcher)
                 chosen_response = choice(ptn['phrases'])
+                logger.info(chosen_response)
                 return chosen_response.replace('%match%', matcher[0])
 
         logger.info('1246')
