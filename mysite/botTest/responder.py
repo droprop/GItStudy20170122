@@ -1,6 +1,7 @@
 import re
 from random import choice
 import botTest.morph
+import logging
 
 
 class Responder:
@@ -53,11 +54,19 @@ class PatternResponder(Responder):
 
     def response(self, text, _):
         """ユーザーの入力に合致するパターンがあれば、関連するフレーズを返す。"""
+        logger = logging.getLogger('command')
+        logger.info(text)
+        logger.info(self._dictionary.pattern)
         for ptn in self._dictionary.pattern:
+            logger.info('1244')
             matcher = re.search(ptn['pattern'], text)
             if matcher:
+                logger.info('1245')
+                logger.info(matcher)
                 chosen_response = choice(ptn['phrases'])
                 return chosen_response.replace('%match%', matcher[0])
+
+        logger.info('1246')
         return choice(self._dictionary.keyword)
 
 
