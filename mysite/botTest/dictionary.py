@@ -43,7 +43,7 @@ class Dictionary:
         """ランダム辞書、パターン辞書、テンプレート辞書をメモリに保存する。"""
         #self.study_keyword(text)
         self.study_pattern(text, parts)
-        self.study_template(parts)
+        #self.study_template(parts)
 
     def study_template(self, parts):
         """形態素のリストpartsを受け取り、
@@ -74,12 +74,15 @@ class Dictionary:
 
     def study_pattern(self, text, parts):
         """ユーザーの発言textを、形態素partsに基づいてパターン辞書に保存する。"""
+        logger = logging.getLogger('command')
         for word, part in parts:
             if botTest.morph.is_keyword(part):  # 品詞が名詞であれば学習
                 # 単語の重複チェック
                 # 同じ単語で登録されていれば、パターンを追加する
                 # 無ければ新しいパターンを作成する
                 duplicated = next((p for p in self._pattern if p['pattern'] == word), None)
+                logger.info(word)
+                logger.info(parts)
                 if duplicated:
                     if not text in duplicated['phrases']:
                         duplicated['phrases'].append(text)

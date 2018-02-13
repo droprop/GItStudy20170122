@@ -44,9 +44,8 @@ def ajaxFunc(request):
 
     dictionary = Dictionary()
     for keyword in keywords:
-        logger.info(keyword)
-#        parts = botTest.morph.analyze(keyword)
-#        dictionary.study(keyword, parts)
+        parts = botTest.morph.analyze(keyword)
+        dictionary.study(keyword, parts)
 
 #    parts = botTest.morph.analyze(myText)
 #    responder = PatternResponder('Pattern', dictionary)
