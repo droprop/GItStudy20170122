@@ -42,7 +42,7 @@ class Dictionary:
     def study(self, text, parts):
         """ランダム辞書、パターン辞書、テンプレート辞書をメモリに保存する。"""
         #self.study_keyword(text)
-        #self.study_pattern(text, parts)
+        self.study_pattern(text, parts)
         #self.study_template(parts)
 
     def study_template(self, parts):
