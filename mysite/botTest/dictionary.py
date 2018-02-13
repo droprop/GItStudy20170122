@@ -42,8 +42,8 @@ class Dictionary:
     def study(self, text, parts):
         """ランダム辞書、パターン辞書、テンプレート辞書をメモリに保存する。"""
         #self.study_keyword(text)
-        self.study_pattern(text, parts)
-        #self.study_template(parts)
+        #self.study_pattern(text, parts)
+        self.study_template(parts)
 
     def study_template(self, parts):
         """形態素のリストpartsを受け取り、
@@ -60,7 +60,6 @@ class Dictionary:
                 word = '%noun%'
                 count += 1
             template += word
-            logger.info('1346')
         
         if count > 0 and template not in self._template[count]:
             self._template[count].append(template)
