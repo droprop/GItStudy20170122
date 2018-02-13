@@ -3,7 +3,7 @@ from collections import defaultdict
 import botTest.morph
 import logging
 
-class Dictionary:
+class DictionaryS:
     """思考エンジンの辞書クラス。
     クラス変数:
     DICT_KEYWORD -- ランダム辞書のファイル名
@@ -17,9 +17,9 @@ class Dictionary:
     pattern -- パターン辞書
     template -- テンプレート辞書
     """
-    DICT = {'keyword': './dics/ryo_keyword.txt',
-            'pattern': './dics/ryo_pattern.txt',
-            'template': './dics/ryo_template.txt',
+    DICT = {'keyword': './dics/saki_keyword.txt',
+            'pattern': './dics/saki_pattern.txt',
+            'template': './dics/saki_template.txt',
             }
 
     def __init__(self):
@@ -43,7 +43,7 @@ class Dictionary:
         """ランダム辞書、パターン辞書、テンプレート辞書をメモリに保存する。"""
         #self.study_keyword(text)
         self.study_pattern(text, parts)
-        #self.study_template(parts)
+        self.study_template(parts)
 
     def study_template(self, parts):
         """形態素のリストpartsを受け取り、

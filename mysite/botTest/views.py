@@ -7,6 +7,7 @@ import json
 import re
 from janome.tokenizer import Tokenizer
 from botTest.dictionary import Dictionary
+from botTest.dictionaryS import DictionaryS
 import botTest.morph
 import os.path
 from botTest.responder import WhatResponder, RandomResponder, PatternResponder, TemplateResponder
@@ -95,9 +96,6 @@ def pattern_to_line(pattern):
     return '{}\t{}'.format(pattern['pattern'], '|'.join(pattern['phrases']))
 
 def indexS(request):
-
-
-
     logger = logging.getLogger('command')
     logger.info('-----request-----')
     logger.info(request.META['HTTP_USER_AGENT'])
@@ -109,9 +107,28 @@ def indexS(request):
     isSP = parse(agent).is_mobile
     logger.info(isSP)
 
-
     retTalk = Talk.objects.filter(name='saki').order_by('?')[0]
     context = {'retContent': retTalk.content, 'isSP' : isSP}
+
+    dictionaryS = DictionaryS()
+
+    with open('./botTest/org_txt/saki_txt.txt', encoding='utf-8') as f:
+        keywords = [l for l in f.read().splitlines() if l]
+    for keyword in keywords:
+        parts = botTest.morph.analyze(keyword)
+        dictionaryS.study(keyword, parts)
+
+#    parts = botTest.morph.analyze(myText)
+#    responder = PatternResponder('Pattern', dictionaryS)
+#    responder = TemplateResponder('Template', dictionaryS)
+#    res = responder.response(myText, parts)
+
+#    dictionaryS.study(myText, parts)
+
+#    logger.info(res)
+
+    dictionaryS.save()
+
     return render(request, 'botTest/saki.html', context)
 
 
