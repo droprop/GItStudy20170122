@@ -24,14 +24,14 @@ class DictionaryS:
 
     def __init__(self):
         """ファイルから辞書の読み込みを行う。"""
-        Dictionary.touch_dics()
-        with open(Dictionary.DICT['keyword'], encoding='utf-8') as f:
+        DictionaryS.touch_dics()
+        with open(DictionaryS.DICT['keyword'], encoding='utf-8') as f:
             self._keyword = [l for l in f.read().splitlines() if l]
 
-        with open(Dictionary.DICT['pattern'], encoding='utf-8') as f:
-            self._pattern = [Dictionary.make_pattern(l) for l in f.read().splitlines() if l]
+        with open(DictionaryS.DICT['pattern'], encoding='utf-8') as f:
+            self._pattern = [DictionaryS.make_pattern(l) for l in f.read().splitlines() if l]
 
-        with open(Dictionary.DICT['template'], encoding='utf-8') as f:
+        with open(DictionaryS.DICT['template'], encoding='utf-8') as f:
             self._template = defaultdict(lambda: [], {})  # set dict default value to []
             for line in f:
                 count, template = line.strip().split('\t')
@@ -90,13 +90,13 @@ class DictionaryS:
 
     def save(self):
         """メモリ上の辞書をファイルに保存する。"""
-        with open(Dictionary.DICT['keyword'], mode='w', encoding='utf-8') as f:
+        with open(DictionaryS.DICT['keyword'], mode='w', encoding='utf-8') as f:
             f.write('\n'.join(self.keyword))
 
-        with open(Dictionary.DICT['pattern'], mode='w', encoding='utf-8') as f:
-            f.write('\n'.join([Dictionary.pattern_to_line(p) for p in self._pattern]))
+        with open(DictionaryS.DICT['pattern'], mode='w', encoding='utf-8') as f:
+            f.write('\n'.join([DictionaryS.pattern_to_line(p) for p in self._pattern]))
 
-        with open(Dictionary.DICT['template'], mode='w', encoding='utf-8') as f:
+        with open(DictionaryS.DICT['template'], mode='w', encoding='utf-8') as f:
             for count, templates in self._template.items():
                 for template in templates:
                     f.write('{}\t{}\n'.format(count, template))
@@ -117,7 +117,7 @@ class DictionaryS:
     @staticmethod
     def touch_dics():
         """辞書ファイルがなければ空のファイルを作成し、あれば何もしない。"""
-        for dic in Dictionary.DICT.values():
+        for dic in DictionaryS.DICT.values():
             if not os.path.exists(dic):
                 open(dic, 'w').close()
 
