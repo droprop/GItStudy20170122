@@ -10,6 +10,7 @@ from botTest.dictionary import Dictionary
 import botTest.morph
 import os.path
 from botTest.responder import WhatResponder, RandomResponder, PatternResponder, TemplateResponder
+from random import choice, randrange
 
 
 def index(request):
