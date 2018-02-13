@@ -57,10 +57,9 @@ class PatternResponder(Responder):
         logger = logging.getLogger('command')
         logger.info('call pattern')
         for ptn in self._dictionary.pattern:
-            logger.info(ptn)
             matcher = re.search(ptn['pattern'], text)
             if matcher:
-                logger.info(matcher)
+                logger.info(ptn)
                 chosen_response = choice(ptn['phrases'])
                 return chosen_response
 
