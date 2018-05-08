@@ -80,9 +80,9 @@
         var responseTag = '<div class="chat-box">';
         responseTag += '<div class="chat-face">';
         if (categoly == "ret") {
-          responseTag += '<img src="../../static/botTest/img/saki.jpg" width="45" height="45">'
+          responseTag += '<img src="../../static/botTest/img/saki.jpg" width="40" height="40">'
         } else if (categoly == "input") {
-          responseTag += '<img src="../../static/botTest/img/ryo.jpg" width="45" height="45">'
+          responseTag += '<img src="../../static/botTest/img/ryo.jpg" width="40" height="40">'
         }
         responseTag += '</div>';
         responseTag += '<div class="chat-area">';
@@ -106,7 +106,7 @@
       <div class="content-inside">
         <div class="chat-box">
           <div class="chat-face">
-            <img src="../../static/botTest/img/saki.jpg" alt="自分のチャット画像です。" width="45" height="45">
+            <img src="../../static/botTest/img/saki.jpg" alt="自分のチャット画像です。" width="40" height="40">
           </div>
           <div class="chat-area">
             <div class="chat-hukidashi">
@@ -128,9 +128,9 @@
           <tr>
             <td>
               {% if isSP %}
-              <input type="text" name="text" id="text" style="width:100%; box-sizing:border-box"></input>
+              <input type="text" name="text" id="text" style="width:100%; box-sizing:border-box" onkeypress="cliAjax()"></input>
               {% else %}
-              <input type="text" name="text" id="text" size="40"></input>
+              <input type="text" name="text" id="text" size="40" onkeypress="cliAjax()"></input>
               {% endif %}
             </td>
             <td>
